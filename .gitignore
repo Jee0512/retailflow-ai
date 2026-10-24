@@ -1,0 +1,47 @@
+# Python files and virtual environments
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Databases and personal/session data
+*.db
+*.sqlite
+*.sqlite3
+session_telemetry.json
+footfall_history.json
+
+# CCTV videos and uploaded footage
+*.mp4
+
+# Generated PDF reports
+*.pdf
+
+# Temporary files
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.DS_Store
+Thumbs.db
+
+# Backups
+*.backup
+*.bak
+
+# Model weights (large binary)
+*.pt
+*.pth
+
+# Data files
+*.csv
+
+# Scratch / temp
+scratch/

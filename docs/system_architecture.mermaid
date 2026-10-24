@@ -1,0 +1,67 @@
+graph TD
+    %% Define styles for diagram elements
+    classDef hardware fill:#2c3e50,stroke:#66fcf1,stroke-width:2px,color:#ffffff;
+    classDef processing fill:#1a252f,stroke:#45a29e,stroke-width:2px,color:#ffffff;
+    classDef core fill:#2c2c54,stroke:#9d4edd,stroke-width:2px,color:#ffffff;
+    classDef output fill:#1e272e,stroke:#ff7b00,stroke-width:2px,color:#ffffff;
+
+    subgraph Video_Input [1. Input Stream Layer]
+        A[CCTV Video File .mp4]:::hardware
+        B[Live Webcam Stream]:::hardware
+        C[Synthetic Simulator Video]:::hardware
+    end
+
+    subgraph Processor [2. Preprocessing & Detection Layer]
+        D[Video Frame Capturer cv2.VideoCapture]:::processing
+        E[Frame Resizer & Normalizer]:::processing
+        F[YOLOv8 Deep Learning Model]:::processing
+        G[Class Filter: ID 0 - Person]:::processing
+    end
+
+    subgraph Tracker_Heatmap [3. Computer Vision Processing Layer]
+        H[ByteTrack / Centroid Association]:::core
+        I[Unique Shopper ID Assignment]:::core
+        J[Path Coordinates Extractor]:::core
+        
+        K[Dwell Time Calculator per Zone]:::core
+        L[Trail Vector Line Drawer]:::core
+        
+        M[2D Frequency Grid Accumulator]:::core
+        N[Gaussian Blur Operator]:::core
+        O[OpenCV Colormap Mapping Jet/Hot]:::core
+    end
+
+    subgraph Dashboard [4. Presentation & Analytics Layer]
+        P[CCTV Bounding Box Stream UI]:::output
+        Q[Dynamic Heatmap Stream UI]:::output
+        R[Streamlit Metric Cards Total, Dwell, Busy]:::output
+        S[Matplotlib & Seaborn Charts Trends & Attention]:::output
+        T[Shopper CSV Report Download]:::output
+    end
+
+    %% Data Flow Connections
+    Video_Input --> D
+    D --> E
+    E --> F
+    F --> G
+    
+    G --> H
+    H --> I
+    I --> J
+    
+    J --> K
+    J --> L
+    J --> M
+    
+    M --> N
+    N --> O
+    
+    L --> P
+    I --> P
+    O --> Q
+    
+    K --> R
+    K --> S
+    K --> T
+    
+    linkStyle default stroke:#c5c6c7,stroke-width:1.5px;

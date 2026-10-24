@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetailFlow - Supermarket Footfall &amp; Spatial Flow Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing_style.css">
+</head>
+<body>
+
+  <!-- Top Academic & Ethical Project Banner -->
+  <div class="top-announcement">
+    <div class="container top-inner" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <span class="announcement-badge">Research Project</span>
+        <span>Computer Vision Supermarket Analytics &bull; Under the guidance of <strong>Prof. Venkata Subramanian J</strong> &bull; Anonymous Centroid Tracking</span>
+      </div>
+      <a href="admin.html" style="color: #FFFFFF; font-weight: 600; text-decoration: none; background: rgba(255,255,255,0.18); padding: 4px 12px; border-radius: 6px; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;" title="System Administrator &amp; Governance Console">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span>Admin Console</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">
+        <div class="brand-monogram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">RetailFlow</span>
+          <span class="brand-subtitle">Supermarket Spatial Analytics</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#dashboard" class="nav-link">Dashboard</a></li>
+          <li class="nav-item"><a href="#what-it-does" class="nav-link">What It Does</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About &amp; Team</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="http://localhost:8501" target="_blank" class="btn-dashboard-nav" style="text-decoration:none; padding: 8px 15px; font-size: 12.5px; font-weight: 700; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; background: #D48B38; color: #FFFFFF; transition: all 0.2s ease;" title="Open Streamlit CCTV Analytics Dashboard (Port 8501)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span>Live Dashboard</span>
+        </a>
+        <button type="button" class="btn-login" id="loginBtn" title="Store Operations Authentication">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span id="navAuthLabel">Sign In</span>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      
+      <div class="hero-header-block">
+        <div class="hero-pill">
+          <span class="pill-dot"></span>
+          <span>Real-Time Supermarket Floor Intelligence</span>
+        </div>
+        <h1 class="hero-title">
+          Understand how customers move across <em>every aisle</em> in your supermarket.
+        </h1>
+        <p class="hero-subtitle">
+          Turn existing ceiling security cameras into real-time footfall intelligence. Discover high-traffic shelf displays, track shopper dwell times across aisles and refrigerated sections, and eliminate checkout lines before they form.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#what-it-does" class="btn-honey">
+            <span>Explore System Features</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <a href="#dashboard" class="btn-outline-warm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <span>View Live Floor Dashboard</span>
+          </a>
+          <a href="#about" class="btn-text-link">
+            <span>Meet The Project Team &darr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Showcase (Featuring the User's Warm Supermarket Interior Photo) -->
+      <div class="hero-showcase-frame">
+        <div class="showcase-topbar">
+          <div class="store-meta">
+            <span class="meta-tag">SUPERMARKET CCTV VIEWPORT</span>
+            <span class="meta-sep">&bull;</span>
+            <span class="meta-title">Central Concourse, Snack Gondolas &amp; Dairy Coolers</span>
+          </div>
+          <div class="store-status">
+            <span class="status-badge green">
+              <span class="status-dot"></span>
+              Store Traffic: Active &amp; Flowing
+            </span>
+          </div>
+        </div>
+
+        <div class="showcase-image-wrapper">
+          <img src="assets/supermarket_interior.jpg" alt="Warmly lit supermarket interior with timber ceiling beams and organized shelves" class="store-photo" id="storePhoto">
+          
+          <!-- Natural Warm Ambient Heatmap Glow (Harmonized with lighting) -->
+          <div class="warmth-overlay"></div>
+
+          <!-- Interactive Hotspot Pin 1: Foreground Snack & Confectionery Gondola -->
+          <div class="human-pin pin-gondola" tabindex="0">
+            <div class="pin-marker" title="Snack &amp; Confectionery Gondola">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </div>
+            <div class="pin-popover">
+              <div class="popover-header">Snack &amp; Confectionery Gondola</div>
+              <p class="popover-body">High-impulse zone with an average shopper dwell time of <strong>2.9 minutes</strong>. Front shelving has 88% pickup rate.</p>
+              <div class="popover-tip">Recommendation: Restock high-margin snacks daily by 3:00 PM before the evening rush.</div>
+            </div>
+          </div>
+
+          <!-- Interactive Hotspot Pin 2: Refrigerated Beverage & Dairy Coolers -->
+          <div class="human-pin pin-coolers" tabindex="0">
+            <div class="pin-marker" title="Refrigerated Beverage Coolers">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8"></path><path d="M9 2v3a3 3 0 0 0 6 0V2"></path><path d="M6 10h12v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2Z"></path></svg>
+            </div>
+            <div class="pin-popover">
+              <div class="popover-header">Refrigerated Beverage Coolers</div>
+              <p class="popover-body">Steady destination aisle. <strong>74%</strong> of shoppers visit this wall during their basket run.</p>
+              <div class="popover-tip">Observation: Quick transaction velocity with average dwell time under 1.2 minutes.</div>
+            </div>
+          </div>
+
+          <!-- Interactive Hotspot Pin 3: Center Packaged Goods Displays -->
+          <div class="human-pin pin-center-aisle" tabindex="0">
+            <div class="pin-marker" title="Dry Goods &amp; Pantry Aisles">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M9 3v18"></path></svg>
+            </div>
+            <div class="pin-popover">
+              <div class="popover-header">Dry Goods &amp; Pantry Aisles</div>
+              <p class="popover-body">Wide concourse allows smooth cart passage with zero traffic clogs or shopper congestion.</p>
+              <div class="popover-tip">Flow Rate: 160+ shoppers per hour passing smoothly.</div>
+            </div>
+          </div>
+
+          <!-- Interactive Hotspot Pin 4: Front Register & Checkout Counter -->
+          <div class="human-pin pin-checkout" tabindex="0">
+            <div class="pin-marker" title="Front Service &amp; Checkout Counter">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+            </div>
+            <div class="pin-popover">
+              <div class="popover-header">Front Service &amp; Checkout Counter</div>
+              <p class="popover-body">Average checkout latency is currently <strong>1.4 minutes</strong>. Queue length is well within comfort limits.</p>
+              <div class="popover-tip">Queue Status: 2 active registers keeping checkout wait times under 90 seconds.</div>
+            </div>
+          </div>
+
+          <!-- Floating Store Observation Note Bottom Left -->
+          <div class="showcase-note-card">
+            <div class="note-author">
+              <span class="author-avatar"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+              <div>
+                <strong>Live Floor Observation</strong>
+                <span>Camera 02 &bull; Central Grocery Sector</span>
+              </div>
+            </div>
+            <p class="note-text">
+              "Promotional end-caps in aisle 3 are attracting 32% more customer stops this afternoon. Flow along the main concourse remains smooth."
+            </p>
+          </div>
+
+          <!-- Floating Metrics Chip Bottom Right -->
+          <div class="showcase-metrics-card">
+            <div class="metric-block">
+              <span class="metric-val" id="heroShopperCount">8</span>
+              <span class="metric-desc" id="heroShopperLabel">Benchmark Shoppers</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-block">
+              <span class="metric-val">99.4%</span>
+              <span class="metric-desc">Detection Accuracy</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-block">
+              <span class="metric-val" id="heroCheckoutWait">1.4m</span>
+              <span class="metric-desc">Avg Checkout Wait</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="showcase-caption-bar">
+          <div class="caption-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B1E17" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span><strong>Privacy-First Architecture</strong> &mdash; 100% anonymous centroid tracking with zero facial recognition or biometric recording</span>
+          </div>
+          <div class="caption-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B1E17" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Works with standard supermarket CCTV cameras</span>
+          </div>
+          <div class="caption-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B1E17" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            <span>Automated printable weekly merchandising reports</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Down Prompt -->
+      <div class="scroll-prompt-wrap">
+        <a href="#what-it-does" class="scroll-link">
+          <span class="scroll-arrow">&darr;</span>
+          <span>Scroll down to see what the application does</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Middle Section: What the Application Does with Hover Functions -->
+  <section class="section features-section" id="what-it-does">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <span class="section-kicker">CORE CAPABILITIES FOR SUPERMARKETS</span>
+        <h2 class="section-heading">What The Application Does</h2>
+        <p class="section-subtext">
+          Hover over each module below to experience how RetailFlow transforms standard supermarket CCTV video into practical merchandising insights.
+        </p>
+      </div>
+
+      <!-- 4 Interactive Feature Cards with Hover Effects -->
+      <div class="feature-card-grid">
+        
+        <!-- Card 1: Customer Path & Traffic Flow -->
+        <div class="craft-card interactive-hover-card" data-card="flow">
+          <div class="card-icon-pill honey">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          </div>
+          <div class="card-step-label">Module 01 &bull; Trajectory Mapping</div>
+          <h3 class="card-heading">Shopper Flow &amp; Path Tracking</h3>
+          <p class="card-summary">
+            Tracks customer paths across store concourses and grocery aisles. Identifies whether shoppers take perimeter loops or navigate through center shelves.
+          </p>
+
+          <!-- Hover Reveal Content -->
+          <div class="card-hover-box">
+            <div class="hover-label">On-Hover Path Preview:</div>
+            <div class="flow-pill-track">
+              <span class="flow-tag active">Store Entrance</span>
+              <span class="flow-arrow">&rarr;</span>
+              <span class="flow-tag highlight">Produce &amp; Fresh</span>
+              <span class="flow-arrow">&rarr;</span>
+              <span class="flow-tag">Center Grocery</span>
+              <span class="flow-arrow">&rarr;</span>
+              <span class="flow-tag">Coolers</span>
+              <span class="flow-arrow">&rarr;</span>
+              <span class="flow-tag">Registers</span>
+            </div>
+            <p class="hover-observation">
+              <strong>Floor Finding:</strong> 68% of customers follow the right-hand perimeter loop. Strategic placement of seasonal displays here drives a 24% basket lift.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Continuous Thermal Dwell Heatmaps -->
+        <div class="craft-card interactive-hover-card" data-card="heat">
+          <div class="card-icon-pill cedar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3 4 5 4 9a6 6 0 0 1-12 0c0-4 3-6 4-9 1 3 3 4 4 0Z"></path></svg>
+          </div>
+          <div class="card-step-label">Module 02 &bull; Spatial Density</div>
+          <h3 class="card-heading">Dwell-Time Heatmaps</h3>
+          <p class="card-summary">
+            Builds persistent thermal density maps showing where customers linger to inspect product labels versus cold dead-zones that shoppers quickly bypass.
+          </p>
+
+          <!-- Hover Reveal Content -->
+          <div class="card-hover-box">
+            <div class="hover-label">Thermal Dwell Scale:</div>
+            <div class="warmth-bar">
+              <span class="scale-label">Transit (&lt; 30s)</span>
+              <div class="gradient-strip"></div>
+              <span class="scale-label">High Dwell (&gt; 4m)</span>
+            </div>
+            <p class="hover-observation">
+              <strong>Floor Finding:</strong> Snack gondolas and impulse endcaps show peak amber dwell density between 4:30 PM and 7:00 PM daily.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Checkout Queue Balancing -->
+        <div class="craft-card interactive-hover-card" data-card="queue">
+          <div class="card-icon-pill amber">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="card-step-label">Module 03 &bull; Queue Intelligence</div>
+          <h3 class="card-heading">Checkout Queue Prediction</h3>
+          <p class="card-summary">
+            Monitors customer cart flow heading toward front registers. Detects queue buildups early and alerts floor supervisors to open additional cashier lanes.
+          </p>
+
+          <!-- Hover Reveal Content -->
+          <div class="card-hover-box">
+            <div class="hover-label">Live Register Flow Status:</div>
+            <div class="queue-status-meter">
+              <div class="meter-item active">
+                <span class="meter-icon" style="color: #2E4D38; font-weight: bold;">&bull;</span>
+                <span>Wait Time: 1.4 mins (Optimal)</span>
+              </div>
+              <div class="meter-item">
+                <span class="meter-icon" style="color: #D48B38; font-weight: bold;">&bull;</span>
+                <span>Active Lanes: 3 of 4</span>
+              </div>
+            </div>
+            <p class="hover-observation">
+              <strong>Floor Finding:</strong> Proactive queue alerts help maintain customer wait times under 2 minutes during peak store hours.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: Automated Executive Performance Analytics -->
+        <div class="craft-card interactive-hover-card" data-card="report">
+          <div class="card-icon-pill dark-wood">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <div class="card-step-label">Module 04 &bull; Executive Intelligence</div>
+          <h3 class="card-heading">Executive Store Analytics</h3>
+          <p class="card-summary">
+            Generates executive summaries of peak footfall, aisle dwell times, and actionable merchandising plans directly from real-time customer analytics.
+          </p>
+
+          <!-- Hover Reveal Content -->
+          <div class="card-hover-box">
+            <div class="hover-label">Analytics Summary Preview:</div>
+            <div class="queue-status-meter">
+              <div class="meter-item active">
+                <span class="meter-icon" style="color: #2E4D38; font-weight: bold;">&bull;</span>
+                <span>Peak Traffic: 5:00 PM – 7:30 PM</span>
+              </div>
+              <div class="meter-item">
+                <span class="meter-icon" style="color: #D48B38; font-weight: bold;">&bull;</span>
+                <span>Top Zone: Snacks &amp; Confectionery</span>
+              </div>
+            </div>
+            <p class="hover-observation">
+              <strong>Floor Finding:</strong> Correlating dwell times with purchase conversion reveals endcap promotions yield a 32% higher shopper engagement rate.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Interactive Department Showcase on Hover -->
+      <div class="interactive-dept-showcase">
+        <div class="dept-showcase-header">
+          <div>
+            <span class="showcase-mini-title">SUPERMARKET ZONE EXPLORER</span>
+            <h3 class="showcase-title">Inspect Supermarket Departments</h3>
+            <p class="showcase-desc">Hover over any department below to view real footfall patterns, dwell times, and merchandising tips:</p>
+          </div>
+        </div>
+
+        <div class="dept-tab-bar">
+          <button class="dept-tab-btn" data-dept="snacks">
+            <span class="tab-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span>
+            <span>Snacks &amp; Confectionery Gondola</span>
+          </button>
+          <button class="dept-tab-btn" data-dept="coolers">
+            <span class="tab-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8"></path><path d="M9 2v3a3 3 0 0 0 6 0V2"></path><path d="M6 10h12v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2Z"></path></svg></span>
+            <span>Refrigerated Beverages &amp; Dairy</span>
+          </button>
+          <button class="dept-tab-btn" data-dept="dry-goods">
+            <span class="tab-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M9 3v18"></path></svg></span>
+            <span>Packaged Goods &amp; Pantry Aisles</span>
+          </button>
+          <button class="dept-tab-btn" data-dept="checkout">
+            <span class="tab-emoji"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg></span>
+            <span>Front Registers &amp; Checkout</span>
+          </button>
+        </div>
+
+        <div class="dept-story-card" id="deptStoryCard">
+          <div class="story-left">
+            <div class="story-badge" id="deptBadge">HIGH-IMPULSE ZONE</div>
+            <h4 class="story-title" id="deptTitle">Snack &amp; Confectionery Gondola</h4>
+            <p class="story-text" id="deptDesc">
+              Customers frequently slow down at this central freestanding fixture to browse premium packaged snacks, chocolates, and artisan spreads. The multi-tier open wooden shelves offer excellent visibility from all angles.
+            </p>
+            <div class="story-stats-grid">
+              <div class="stat-cell">
+                <span class="stat-number" id="deptShoppers">138 / hr</span>
+                <span class="stat-caption">Average Shopper Footfall</span>
+              </div>
+              <div class="stat-cell">
+                <span class="stat-number" id="deptDwellTime">2m 54s</span>
+                <span class="stat-caption">Average Dwell Time</span>
+              </div>
+              <div class="stat-cell">
+                <span class="stat-number" id="deptConversionRate">88%</span>
+                <span class="stat-caption">Product Pickup Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-right">
+            <div class="merchandising-advice-card">
+              <div class="advice-header">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Layout &amp; Merchandising Observations</span>
+              </div>
+              <p class="advice-content" id="deptAdvice">
+                Place new product launches and promotional items on the top and middle shelf tiers directly facing the main entrance walkway to capture maximum shopper gaze within their first 2 minutes in the store.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Live Visual Store Analytics Dashboard Section -->
+  <section class="section dashboard-section" id="dashboard">
+    <div class="container">
+      <div class="dashboard-panel">
+        <div class="panel-header">
+          <div class="panel-title-group">
+            <span class="panel-kicker">STORE TELEMETRY PORTAL</span>
+            <h2 class="panel-heading">Live Supermarket Operations Dashboard</h2>
+            <p class="panel-desc">Real-time footfall counters, hourly customer distribution, and department dwell tracking across active store cameras.</p>
+          </div>
+          <div class="panel-live-pill" id="dashboardLivePill" style="background: rgba(245, 158, 11, 0.12); color: #B45309; border: 1px solid rgba(245, 158, 11, 0.3);">
+            <span class="live-blink" id="dashboardLiveDot" style="background: #F59E0B;"></span>
+            <span id="dashboardLiveText">SYSTEM STANDBY &bull; AWAITING CCTV INPUT</span>
+          </div>
+        </div>
+
+        <!-- Telemetry State Notice Banner -->
+        <div id="telemetryNoticeBanner" style="margin-bottom: 24px; padding: 12px 18px; border-radius: 8px; background: #FEF3C7; border: 1px solid #F59E0B; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: #92400E;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span id="telemetryNoticeText"><strong>Standby Mode:</strong> No custom CCTV video has been uploaded yet. Displaying baseline simulation benchmark telemetry (600-frame synthetic test footage).</span>
+          </div>
+          <a href="http://localhost:8501" target="_blank" style="color: #92400E; font-weight: 700; text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;">Launch Live Dashboard to Stream CCTV &rarr;</a>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="dashboard-kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-label">Active Store Occupancy</span>
+            <div class="kpi-number" id="kpiOccupancy">0 <span class="kpi-unit">live shoppers</span></div>
+            <div class="kpi-sub gold" id="kpiOccupancySub">Awaiting live video feed</div>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Cumulative Footfall</span>
+            <div class="kpi-number" id="kpiFootfall">8 <span class="kpi-unit">shoppers</span></div>
+            <div class="kpi-sub green" id="kpiFootfallSub">Baseline simulation count</div>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Average Store Dwell</span>
+            <div class="kpi-number" id="kpiDwell">16.4 <span class="kpi-unit">seconds</span></div>
+            <div class="kpi-sub green" id="kpiDwellSub">Produce Aisle highest dwell</div>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Staff Filter Integrity</span>
+            <div class="kpi-number" id="kpiStaff">1 <span class="kpi-unit">associate</span></div>
+            <div class="kpi-sub green" id="kpiStaffSub">Filtered from shopper analytics</div>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Hourly Footfall Chart Mockup -->
+        <div class="dashboard-visual-grid">
+          <div class="visual-chart-box">
+            <div class="chart-header">
+              <h4>Hourly Footfall Distribution (Today)</h4>
+              <span class="chart-badge" id="chartTelemetryBadge">Simulation Benchmark Trend</span>
+            </div>
+            <div class="chart-bars-wrap">
+              <div class="bar-col"><div class="bar-fill" style="height: 18%;"></div><span>08:00</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 28%;"></div><span>10:00</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 42%;"></div><span>12:00</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 38%;"></div><span>14:00</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 65%;"></div><span>16:00</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 85%;"></div><span>18:00</span></div>
+              <div class="bar-col active"><div class="bar-fill" style="height: 98%;"></div><span>19:00 (Rush)</span></div>
+              <div class="bar-col"><div class="bar-fill" style="height: 48%;"></div><span>21:00</span></div>
+            </div>
+          </div>
+
+          <div class="visual-zones-box">
+            <div class="chart-header">
+              <h4>Department Dwell Breakdown</h4>
+              <span class="chart-badge" id="zoneTelemetryBadge">Thermal Dwell Analytics</span>
+            </div>
+            <div class="zone-progress-list">
+              <div class="zone-progress-item">
+                <div class="progress-labels">
+                  <span>Aisle A (Produce / Fresh Goods)</span>
+                  <strong id="dwellProduce">28.5s avg</strong>
+                </div>
+                <div class="progress-track"><div class="progress-fill" id="barProduce" style="width: 88%;"></div></div>
+              </div>
+
+              <div class="zone-progress-item">
+                <div class="progress-labels">
+                  <span>Aisle C (Electronics &amp; Appliances)</span>
+                  <strong id="dwellElectronics">22.0s avg</strong>
+                </div>
+                <div class="progress-track"><div class="progress-fill" id="barElectronics" style="width: 68%;"></div></div>
+              </div>
+
+              <div class="zone-progress-item">
+                <div class="progress-labels">
+                  <span>Aisle B (Apparel &amp; Dry Goods)</span>
+                  <strong id="dwellApparel">18.2s avg</strong>
+                </div>
+                <div class="progress-track"><div class="progress-fill" id="barApparel" style="width: 56%;"></div></div>
+              </div>
+
+              <div class="zone-progress-item">
+                <div class="progress-labels">
+                  <span>Front Checkout Service (Lanes 1 &amp; 2)</span>
+                  <strong id="dwellCheckout">11.8s avg</strong>
+                </div>
+                <div class="progress-track"><div class="progress-fill" id="barCheckout" style="width: 36%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connection to Main Python Streamlit Application -->
+        <div class="dashboard-connect-bar">
+          <div class="connect-info">
+            <span class="connect-tag">DIRECT PIPELINE INTEGRATION</span>
+            <h4>Connect to Main Real-Time CCTV Tracking Dashboard</h4>
+            <p>Upload custom store CCTV video files, execute YOLOv8 tracking, filter uniform staff, and generate full PDF reports on the main Streamlit portal.</p>
+          </div>
+          <div class="connect-actions">
+            <a href="http://localhost:8501" target="_blank" class="btn-honey large pulse-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>Launch Main Dashboard (Port 8501)</span>
+            </a>
+            <span class="connect-status" id="engineStatusIndicator">🟡 Engine: Checking Port 8501...</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll Down About Section & Project Team Mentorship -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <span class="section-kicker">ACADEMIC RESEARCH &amp; PROJECT TEAM</span>
+        <h2 class="section-heading">About The Project &amp; Engineering Team</h2>
+        <p class="section-subtext">
+          RetailFlow is a computer vision engineering capstone developed to bring non-invasive footfall tracking and spatial density analytics to modern supermarket layouts.
+        </p>
+      </div>
+
+      <!-- Distinguished Faculty Mentorship Card -->
+      <div class="faculty-guide-card">
+        <div class="guide-badge-row">
+          <span class="guide-kicker">Faculty Guidance &amp; Mentorship</span>
+          <span class="guide-status-tag">Project Mentor</span>
+        </div>
+        <div class="guide-main-grid">
+          <div class="guide-avatar-wrap">
+            <div class="guide-avatar-circle">
+              <span>VS</span>
+            </div>
+            <h3 class="guide-name">Prof. Venkata Subramanian J</h3>
+            <span class="guide-designation">Project Guide &amp; Technical Mentor</span>
+          </div>
+
+          <div class="guide-contribution-block">
+            <h4 class="contrib-title">Technical Guidance &amp; Architectural Leadership</h4>
+            <p class="contrib-text">
+              Under the technical mentorship of <strong>Prof. Venkata Subramanian J</strong>, the project team designed, developed, and experimentally validated each stage of the computer vision pipeline:
+            </p>
+            <ul class="guide-bullets">
+              <li>
+                <strong>Pipeline Architecture &amp; Model Selection:</strong> Guided the comparative evaluation of object detection models, leading to the selection of lightweight YOLOv8 models paired with centroid-based tracking and Gaussian spatial accumulation for accurate 2D dwell heatmaps.
+              </li>
+              <li>
+                <strong>Real-Time Edge Architecture:</strong> Steered the technical design away from latency-heavy cloud dependencies toward efficient on-premise edge computing, enabling real-time frame processing with minimal computational overhead.
+              </li>
+              <li>
+                <strong>Privacy-First Ethical Standards:</strong> Enforced strict privacy-by-design compliance, ensuring the system operates without facial recognition or biometric identification, relying purely on anonymized centroid coordinates.
+              </li>
+              <li>
+                <strong>Milestone Reviews &amp; Verification:</strong> Provided continuous academic guidance through code reviews, metric verification, synthetic and real video testing, and structured executive PDF performance report generation.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-section-wrap">
+        <h3 class="team-subheading">Engineering Team &amp; Project Contributors</h3>
+        <p class="team-intro">Undergraduate engineering students responsible for designing, training, integrating, and deploying the RetailFlow platform:</p>
+
+        <div class="team-card-grid">
+          
+          
+          <div class="team-member-card">
+            <div class="member-avatar">
+              <span>NG</span>
+            </div>
+            <h4 class="member-name">Nikita Kirankumar Gaikwad </h4>
+            <div class="member-reg">RA2532242010012</div>
+            <div class="member-role">Dashboard &amp; Visualization</div>
+            <p class="member-desc">
+              Engineered the computer vision detection pipeline, configuring YOLOv8 person detection, confidence calibration, and bounding-box inference routines.
+            </p>
+          </div>
+
+       
+          <div class="team-member-card">
+            <div class="member-avatar">
+              <span>HR</span>
+            </div>
+            <h4 class="member-name">Harini Kasthuri B Ravindran </h4>
+            <div class="member-reg">RA2532242010034</div>
+            <div class="member-role">Computer Vision &amp; Detection Pipeline</div>
+            <p class="member-desc">
+              Implemented persistent centroid tracking with ByteTrack, developed Gaussian kernel dwell accumulation matrices, and optimized heatmap rendering. 
+            </p>
+          </div>
+
+         
+          <div class="team-member-card">
+            <div class="member-avatar">
+              <span>JG</span>
+            </div>
+            <h4 class="member-name">Jeeva G</h4>
+            <div class="member-reg">RA2532242010025</div>
+            <div class="member-role">Retail Analytics</div>
+            <p class="member-desc">
+              Developed spatial zone partitioning, footfall aggregation algorithms, aisle dwell-time calculations, and traffic density metrics across supermarket departments.
+            </p>
+          </div>
+
+          
+          <div class="team-member-card">
+            <div class="member-avatar">
+              <span>AS</span>
+            </div>
+            <h4 class="member-name">Abijah Justin Samraj</h4>
+            <div class="member-reg">RA2532242010011</div>
+            <div class="member-role">Heatmap Modeling &amp; Density Algorithms</div>
+            <p class="member-desc">
+               Designed and implemented the interactive Streamlit operations dashboard, integrating real-time video streaming, KPI scorecards, dynamic charts, and user controls.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 4-Step Technical Architecture -->
+      <div class="journey-wrapper">
+        <h3 class="journey-title">System Architecture Pipeline</h3>
+        <div class="journey-grid">
+          
+          <div class="journey-step">
+            <span class="step-badge">Stage 01</span>
+            <h4>CCTV Video Ingestion</h4>
+            <p>Connects to standard supermarket IP/RTSP camera feeds across aisles, coolers, and registers.</p>
+          </div>
+
+          <div class="journey-step">
+            <span class="step-badge">Stage 02</span>
+            <h4>YOLOv8 Detection &amp; Tracking</h4>
+            <p>Identifies shoppers and tracks centroid movement vectors with low-latency edge inference.</p>
+          </div>
+
+          <div class="journey-step">
+            <span class="step-badge">Stage 03</span>
+            <h4>Gaussian Heatmap Accumulation</h4>
+            <p>Accumulates footstep coordinates into 2D density matrices to highlight hot and cold shelves.</p>
+          </div>
+
+          <div class="journey-step">
+            <span class="step-badge">Stage 04</span>
+            <h4>Operational Store Analytics</h4>
+            <p>Delivers live floor dashboards, queue alerts, and automated PDF summaries for store management.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <span class="section-kicker">GET IN TOUCH</span>
+        <h2 class="section-heading">Connect with the Project Team</h2>
+        <p class="section-subtext">
+          Have inquiries regarding project architecture, dataset validation, or retail computer vision deployment? Send us a message.
+        </p>
+      </div>
+
+      <div class="contact-box-grid">
+        <div class="contact-card-left">
+          <h3 class="contact-subhead">Project Research Lab</h3>
+          <p class="contact-subdesc">
+            Developed under the Department of Computer Science &amp; Engineering, focusing on real-time computer vision applications in modern retail environments.
+          </p>
+          
+          <div class="contact-item">
+            <span class="contact-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+            <div>
+              <strong>Academic Institution &amp; Lab</strong>
+              <span>Computer Vision &amp; Spatial Intelligence Research Group</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+            <div>
+              <strong>Project Guide</strong>
+              <span>Prof. Venkata Subramanian J</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span>
+            <div>
+              <strong>Project Email</strong>
+              <span>research.retailflow@academic.edu</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-card-right" onsubmit="handleContactSubmit(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="e.g. Dr. Ramesh Kumar" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="ramesh@institution.edu" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="subject">Subject / Area of Inquiry</label>
+            <input type="text" id="subject" placeholder="e.g. Evaluation of Heatmap Accuracy / Multi-Camera Calibration">
+          </div>
+
+          <div class="form-field">
+            <label for="note">Message</label>
+            <textarea id="note" rows="4" placeholder="Your questions or feedback regarding the RetailFlow computer vision architecture..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-honey full-width">
+            <span>Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+          
+          <div id="contactSentAlert" class="contact-sent-msg">
+            Thank you! Your message has been received by the research project team.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Database-Backed Authentication Modal Dialog -->
+  <div class="modal-curtain" id="loginModal">
+    <div class="modal-box">
+      <div class="modal-top">
+        <div class="modal-brand-badge">
+          <span class="badge-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span>
+          <h4 id="authModalHeading">Store Operations Portal</h4>
+        </div>
+        <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <!-- Auth Tab Navigation -->
+      <div class="auth-tabs" id="authTabsBar">
+        <button type="button" class="auth-tab-btn active" id="tabSignInBtn" onclick="switchAuthTab('signin')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"></circle><path d="m21 2-9.6 9.6"></path><path d="m15.5 7.5 3 3L22 7l-3-3"></path></svg>
+          <span>Sign In</span>
+        </button>
+        <button type="button" class="auth-tab-btn" id="tabRegisterBtn" onclick="switchAuthTab('register')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" x2="19" y1="8" y2="14"></line><line x1="22" x2="16" y1="11" y2="11"></line></svg>
+          <span>Register</span>
+        </button>
+      </div>
+
+      <!-- Live Feedback Alert Banner -->
+      <div class="auth-alert" id="authAlertBox"></div>
+
+      <!-- Tab 1: Sign In Form -->
+      <form id="signInForm" onsubmit="handleSignInSubmit(event)">
+        <p class="modal-intro">
+          Sign in to access real-time CCTV surveillance feeds and store floor intelligence.
+        </p>
+        <div class="form-field">
+          <label for="loginEmail">Store Manager / User Email</label>
+          <input type="email" id="loginEmail" placeholder="e.g. manager@supermarket.com" value="manager@supermarket.com" required autocomplete="username">
+        </div>
+        <div class="form-field">
+          <label for="loginPassword">Access Key / Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
+        </div>
+        <div class="modal-checks">
+          <label class="check-wrap">
+            <input type="checkbox" id="rememberMeCheck" checked>
+            <span>Remember this terminal</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-honey full-width" id="signInSubmitBtn">
+          <span>Sign In to Operations Portal</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"></path></svg>
+        </button>
+        <p class="auth-switch-text">
+          Need a new manager login? <a class="auth-switch-link" onclick="switchAuthTab('register')">Create an account here</a>
+        </p>
+      </form>
+
+      <!-- Tab 2: Create Account Form -->
+      <form id="registerForm" style="display: none;" onsubmit="handleRegisterSubmit(event)">
+        <p class="modal-intro">
+          Register a new account. Your email and salted password hash are stored in the local SQLite database.
+        </p>
+        <div class="form-field">
+          <label for="regEmail">Work Email Address</label>
+          <input type="email" id="regEmail" placeholder="e.g. yourname@supermarket.com" required autocomplete="username">
+        </div>
+        <div class="form-field">
+          <label for="regRole">Store Role / Title</label>
+          <select id="regRole" class="form-select">
+            <option value="Store Manager" selected>Store Operations Manager</option>
+            <option value="Retail Analyst">Retail Footfall Analyst</option>
+            <option value="Floor Supervisor">Floor &amp; Checkout Supervisor</option>
+            <option value="Merchandising Lead">Merchandising &amp; Category Lead</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="regPassword">New Password (minimum 4 characters)</label>
+          <input type="password" id="regPassword" placeholder="Create a secure password" required minlength="4" autocomplete="new-password">
+        </div>
+        <div class="form-field">
+          <label for="regConfirmPassword">Confirm Password</label>
+          <input type="password" id="regConfirmPassword" placeholder="Confirm your password" required minlength="4" autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn-honey full-width" id="registerSubmitBtn">
+          <span>Create Database Account &amp; Sign In</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"></path></svg>
+        </button>
+        <p class="auth-switch-text">
+          Already registered? <a class="auth-switch-link" onclick="switchAuthTab('signin')">Sign in with your email</a>
+        </p>
+      </form>
+
+      <!-- Authenticated Session View (When already logged in) -->
+      <div id="sessionView" style="display: none; text-align: center; padding: 10px 0;">
+        <div style="width: 48px; height: 48px; margin: 0 auto 12px; background: #FAF7F2; border: 1.5px solid #E8DFD0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #D48B38;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <h4 style="font-size: 17px; color: var(--timber-dark); margin-bottom: 4px;" id="sessionEmail">manager@supermarket.com</h4>
+        <p style="font-size: 12.5px; color: var(--ink-muted); margin-bottom: 20px;" id="sessionRole">Store Operations Manager &bull; Authenticated via SQLite Database</p>
+        
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <a href="http://localhost:8501" target="_blank" class="btn-honey" style="text-decoration: none; padding: 8px 18px; border-radius: 8px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
+            <span>Open Streamlit Dashboard</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </a>
+          <button type="button" class="btn-outline-warm" onclick="handleSignOut()" style="padding: 8px 18px; border-radius: 8px; font-size: 13px; cursor: pointer;">
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-hint">
+        <span>SQLite Database Security &bull; SHA-256 with Salt Encryption Active</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div class="footer-brand-info">
+        <span class="footer-title">RetailFlow</span>
+        <p class="footer-sub">
+          Computer Vision Supermarket Analytics &bull; Under the guidance of <strong>Prof. Venkata Subramanian J</strong>
+        </p>
+      </div>
+
+      <div class="footer-nav-links">
+        <a href="#home">Home</a>
+        <a href="#what-it-does">What It Does</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#about">About &amp; Team</a>
+        <a href="#contact">Contact</a>
+        <a href="admin.html" style="color: #D48B38; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Admin Console</span>
+        </a>
+      </div>
+
+      <div class="footer-copyright">
+        <span>&copy; 2026 RetailFlow Analytics &bull; Project Members: Abijah, Nikita, Jeeva, Harini</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Engine -->
+  <script>
+    // ========================================================
+    // DATABASE AUTHENTICATION & SESSION ENGINE (SQLite Backed)
+    // ========================================================
+    const loginModal = document.getElementById('loginModal');
+    const loginBtn = document.getElementById('loginBtn');
+    const navAuthLabel = document.getElementById('navAuthLabel');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const authAlertBox = document.getElementById('authAlertBox');
+    const signInForm = document.getElementById('signInForm');
+    const registerForm = document.getElementById('registerForm');
+    const sessionView = document.getElementById('sessionView');
+    const authTabsBar = document.getElementById('authTabsBar');
+    const tabSignInBtn = document.getElementById('tabSignInBtn');
+    const tabRegisterBtn = document.getElementById('tabRegisterBtn');
+
+    // Dynamic API URL builder supporting both localhost:8000 and direct file:// viewing
+    function getApiUrl(endpoint) {
+      if (window.location.protocol === 'file:' || !window.location.port) {
+        return `http://127.0.0.1:8000${endpoint}`;
+      }
+      return endpoint;
+    }
+
+    function showAuthAlert(message, type = 'info') {
+      if (!authAlertBox) return;
+      authAlertBox.className = `auth-alert ${type}`;
+      authAlertBox.innerHTML = message;
+      authAlertBox.style.display = 'block';
+    }
+
+    function hideAuthAlert() {
+      if (!authAlertBox) return;
+      authAlertBox.style.display = 'none';
+      authAlertBox.innerHTML = '';
+    }
+
+    function switchAuthTab(tab) {
+      hideAuthAlert();
+      if (!signInForm || !registerForm) return;
+
+      if (tab === 'signin') {
+        tabSignInBtn.classList.add('active');
+        tabRegisterBtn.classList.remove('active');
+        signInForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        sessionView.style.display = 'none';
+        document.getElementById('authModalHeading').textContent = 'Store Operations Portal';
+      } else if (tab === 'register') {
+        tabRegisterBtn.classList.add('active');
+        tabSignInBtn.classList.remove('active');
+        registerForm.style.display = 'block';
+        signInForm.style.display = 'none';
+        sessionView.style.display = 'none';
+        document.getElementById('authModalHeading').textContent = 'Create Manager Account';
+      }
+    }
+
+    // Handle Sign In (Query SQLite database)
+    async function handleSignInSubmit(e) {
+      e.preventDefault();
+      hideAuthAlert();
+
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+      const submitBtn = document.getElementById('signInSubmitBtn');
+
+      if (!email || !password) {
+        showAuthAlert('⚠️ Please enter both email and password.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Verifying credentials...</span>';
+
+      try {
+        const response = await fetch(getApiUrl('/api/login'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.user) {
+          // Success! Save session
+          localStorage.setItem('retailflow_current_user', JSON.stringify(data.user));
+          showAuthAlert(`✅ ${data.message || 'Authentication successful!'}`, 'success');
+          updateNavUserSession(data.user);
+          renderSessionState(data.user);
+
+          setTimeout(() => {
+            loginModal.classList.remove('visible');
+          }, 1500);
+        } else {
+          const msg = data.message || 'Incorrect email or password.';
+          const isPending = msg.toLowerCase().includes('pending');
+          const isRejected = msg.toLowerCase().includes('reject');
+
+          if (isPending) {
+            showAuthAlert(`⏳ <strong>Approval Required:</strong> ${msg}<br><small style="margin-top:6px; display:block;">Administrators can review and approve accounts in the <a href="admin.html" target="_blank" style="color: #D48B38; font-weight: 700; text-decoration: underline;">Admin Console &rarr;</a></small>`, 'info');
+          } else if (isRejected) {
+            showAuthAlert(`🚫 <strong>Access Prohibited:</strong> ${msg}`, 'error');
+          } else {
+            showAuthAlert(`❌ ${msg}`, 'error');
+          }
+        }
+      } catch (err) {
+        console.warn('API fetch note:', err);
+        showAuthAlert(`❌ Authentication error: ${err.message || 'Could not connect to database server. Please ensure the dashboard is running.'}`, 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Sign In to Operations Portal</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"></path></svg>`;
+      }
+    }
+
+    // Handle Create Account (Insert into SQLite database)
+    async function handleRegisterSubmit(e) {
+      e.preventDefault();
+      hideAuthAlert();
+
+      const email = document.getElementById('regEmail').value.trim();
+      const role = document.getElementById('regRole').value;
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+      const submitBtn = document.getElementById('registerSubmitBtn');
+
+      if (!email || !email.includes('@')) {
+        showAuthAlert('⚠️ Please provide a valid email address.', 'error');
+        return;
+      }
+
+      if (password.length < 4) {
+        showAuthAlert('⚠️ Password must be at least 4 characters long.', 'error');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showAuthAlert('⚠️ Passwords do not match. Please verify and retype.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Creating database record...</span>';
+
+      try {
+        const response = await fetch(getApiUrl('/api/register'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password, role })
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.user) {
+          if (data.user.status === 'pending') {
+            showAuthAlert(`⏳ <strong>Registration Submitted for Review!</strong><br>${data.message}<br><small style="margin-top:6px; display:block;">Your account has been saved to SQLite database and is awaiting administrator approval. An administrator can approve access via the <a href="admin.html" target="_blank" style="color: #D48B38; font-weight:700; text-decoration:underline;">Admin Console</a>.</small>`, 'info');
+            document.getElementById('loginEmail').value = email;
+            document.getElementById('loginPassword').value = password;
+            setTimeout(() => { switchAuthTab('signin'); }, 4000);
+          } else {
+            localStorage.setItem('retailflow_current_user', JSON.stringify(data.user));
+            showAuthAlert(`🎉 ${data.message || 'Account successfully registered in database!'}`, 'success');
+            updateNavUserSession(data.user);
+            renderSessionState(data.user);
+            setTimeout(() => { loginModal.classList.remove('visible'); }, 1800);
+          }
+        } else {
+          showAuthAlert(`❌ ${data.message || 'Failed to create account.'}`, 'error');
+        }
+      } catch (err) {
+        console.warn('API registration error:', err);
+        showAuthAlert(`❌ Registration error: ${err.message || 'Failed to communicate with SQLite database server.'}`, 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Create Database Account &amp; Sign In</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"></path></svg>`;
+      }
+    }
+
+    // Sign Out Action
+    function handleSignOut() {
+      localStorage.removeItem('retailflow_current_user');
+      if (navAuthLabel) {
+        navAuthLabel.textContent = 'Sign In';
+      }
+      if (loginBtn) {
+        loginBtn.title = 'Store Manager Sign In';
+      }
+      switchAuthTab('signin');
+      showAuthAlert('ℹ️ You have signed out successfully.', 'info');
+    }
+
+    function updateNavUserSession(user) {
+      if (!navAuthLabel || !user) return;
+      const shortEmail = user.email.length > 20 ? user.email.substring(0, 18) + '...' : user.email;
+      navAuthLabel.textContent = `👤 ${shortEmail}`;
+      if (loginBtn) {
+        loginBtn.title = `Signed in as ${user.email} (${user.role || 'Manager'}) - Click to view or sign out`;
+      }
+    }
+
+    function renderSessionState(user) {
+      if (!user) {
+        authTabsBar.style.display = 'flex';
+        signInForm.style.display = 'block';
+        registerForm.style.display = 'none';
+        sessionView.style.display = 'none';
+        return;
+      }
+      authTabsBar.style.display = 'none';
+      signInForm.style.display = 'none';
+      registerForm.style.display = 'none';
+      sessionView.style.display = 'block';
+      document.getElementById('sessionEmail').textContent = user.email;
+      document.getElementById('sessionRole').textContent = `${user.role || 'Store Manager'} • Authenticated via SQLite Database`;
+    }
+
+    // Modal Visibility Listeners
+    if (loginBtn) {
+      loginBtn.addEventListener('click', () => {
+        const saved = localStorage.getItem('retailflow_current_user');
+        if (saved) {
+          try {
+            const user = JSON.parse(saved);
+            renderSessionState(user);
+          } catch (_) {
+            switchAuthTab('signin');
+          }
+        } else {
+          switchAuthTab('signin');
+        }
+        loginModal.classList.add('visible');
+      });
+    }
+
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', () => {
+        loginModal.classList.remove('visible');
+      });
+    }
+
+    window.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        loginModal.classList.remove('visible');
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && loginModal.classList.contains('visible')) {
+        loginModal.classList.remove('visible');
+      }
+    });
+
+    // Check existing session on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('retailflow_current_user');
+      if (saved) {
+        try {
+          const user = JSON.parse(saved);
+          updateNavUserSession(user);
+        } catch (_) {}
+      }
+    });
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('contactSentAlert');
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 5000);
+    }
+
+    // Interactive Department Tabs on Hover / Click for Universal Supermarkets
+    const deptStories = {
+      snacks: {
+        badge: "HIGH-IMPULSE ZONE",
+        title: "Snack & Confectionery Gondola",
+        desc: "Customers frequently slow down at this central freestanding fixture to browse premium packaged snacks, chocolates, and artisan spreads. The multi-tier open wooden shelves offer excellent visibility from all angles.",
+        shoppers: "138 / hr",
+        dwell: "2m 54s",
+        conversion: "88%",
+        advice: "Place new product launches and promotional items on the top and middle shelf tiers directly facing the main entrance walkway to capture maximum shopper gaze within their first 2 minutes in the store."
+      },
+      coolers: {
+        badge: "DESTINATION WALL",
+        title: "Refrigerated Dairy & Chilled Beverages",
+        desc: "Brightly illuminated glass-door wall coolers attract shoppers with high mission-driven intent. Shoppers quickly grab daily milk, juices, yogurts, and cold drinks with minimal hesitation.",
+        shoppers: "182 / hr",
+        dwell: "1m 24s",
+        conversion: "94%",
+        advice: "Feature grab-and-go single-serve iced coffees and ready-to-drink smoothies at eye level in cooler 2 to cross-sell to morning commuter traffic."
+      },
+      "dry-goods": {
+        badge: "GROCERY STAPLES",
+        title: "Packaged Goods & Pantry Aisles",
+        desc: "Long organized aisles with deep wooden shelving. Customers navigate with shopping carts at a steady, uninterrupted pace while ticking items off their household shopping lists.",
+        shoppers: "164 / hr",
+        dwell: "2m 10s",
+        conversion: "78%",
+        advice: "Group complementary staple categories (pasta with sauces, cereals with plant milks) along the same aisle facing to increase multi-item cart purchases."
+      },
+      checkout: {
+        badge: "TRANSACTION TERMINAL",
+        title: "Front Registers & Checkout Service Area",
+        desc: "The critical final customer touchpoint. Monitoring queue density and checkout speeds guarantees that shoppers complete purchases smoothly with zero wait frustration.",
+        shoppers: "220 / hr",
+        dwell: "1m 40s",
+        conversion: "100%",
+        advice: "Whenever queue buildup exceeds 3 waiting carts for more than 75 seconds, automatically notify floating floor personnel to open express lane 4."
+      }
+    };
+
+    const deptTabs = document.querySelectorAll('.dept-tab-btn');
+    deptTabs.forEach(tab => {
+      const activate = () => {
+        deptTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const key = tab.getAttribute('data-dept');
+        const info = deptStories[key];
+        if (info) {
+          document.getElementById('deptBadge').textContent = info.badge;
+          document.getElementById('deptTitle').textContent = info.title;
+          document.getElementById('deptDesc').textContent = info.desc;
+          document.getElementById('deptShoppers').textContent = info.shoppers;
+          document.getElementById('deptDwellTime').textContent = info.dwell;
+          document.getElementById('deptConversionRate').textContent = info.conversion;
+          document.getElementById('deptAdvice').textContent = info.advice;
+        }
+      };
+
+      tab.addEventListener('mouseenter', activate);
+      tab.addEventListener('mouseover', activate);
+      tab.addEventListener('click', activate);
+    });
+
+    // Mobile Navigation Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('nav-menu');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('nav-open');
+      });
+    }
+
+    // Scroll spy for active nav link
+    window.addEventListener('scroll', () => {
+      const sections = ['home', 'what-it-does', 'dashboard', 'about', 'contact'];
+      const scrollPos = window.scrollY + 140;
+      
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        }
+      });
+    });
+
+    // Real-Time Telemetry and System State Poller
+    async function syncStoreTelemetry() {
+      try {
+        const res = await fetch('/api/telemetry');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data.success) return;
+
+        const liveDot = document.getElementById('dashboardLiveDot');
+        const liveText = document.getElementById('dashboardLiveText');
+        const livePill = document.getElementById('dashboardLivePill');
+        const noticeBanner = document.getElementById('telemetryNoticeBanner');
+        const noticeText = document.getElementById('telemetryNoticeText');
+        const engineStatus = document.getElementById('engineStatusIndicator');
+        const btnReportLabel = document.getElementById('btnReportLabel');
+
+        const kpiOcc = document.getElementById('kpiOccupancy');
+        const kpiOccSub = document.getElementById('kpiOccupancySub');
+        const kpiFoot = document.getElementById('kpiFootfall');
+        const kpiFootSub = document.getElementById('kpiFootfallSub');
+        const kpiDwell = document.getElementById('kpiDwell');
+        const kpiDwellSub = document.getElementById('kpiDwellSub');
+        const kpiStaff = document.getElementById('kpiStaff');
+        const kpiStaffSub = document.getElementById('kpiStaffSub');
+
+        const heroCount = document.getElementById('heroShopperCount');
+        const heroLabel = document.getElementById('heroShopperLabel');
+
+        // Department dwell bars
+        const dwellProduce = document.getElementById('dwellProduce');
+        const barProduce = document.getElementById('barProduce');
+        const dwellElec = document.getElementById('dwellElectronics');
+        const barElec = document.getElementById('barElectronics');
+        const dwellApp = document.getElementById('dwellApparel');
+        const barApp = document.getElementById('barApparel');
+        const dwellCheck = document.getElementById('dwellCheckout');
+        const barCheck = document.getElementById('barCheckout');
+
+        if (data.status === 'live') {
+          if (liveDot) liveDot.style.background = '#10B981';
+          if (liveText) liveText.innerHTML = data.status_label || 'LIVE CCTV INFERENCE ACTIVE &bull; 30 FPS';
+          if (livePill) {
+            livePill.style.background = 'rgba(16, 185, 129, 0.12)';
+            livePill.style.color = '#065F46';
+            livePill.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+          }
+          if (noticeBanner) {
+            noticeBanner.style.background = '#ECFDF5';
+            noticeBanner.style.borderColor = '#10B981';
+            noticeBanner.style.color = '#065F46';
+          }
+          if (noticeText) noticeText.innerHTML = `<strong>🟢 Live CCTV Stream Active:</strong> Processing video via YOLOv8. Real-time customer footfall, dwell times, and staff filtering are active.`;
+          
+          if (kpiOcc) kpiOcc.innerHTML = `${data.active_occupancy} <span class="kpi-unit">live shoppers</span>`;
+          if (kpiOccSub) { kpiOccSub.className = 'kpi-sub green'; kpiOccSub.innerText = 'Active on camera frame'; }
+          if (kpiFoot) kpiFoot.innerHTML = `${data.total_footfall} <span class="kpi-unit">shoppers</span>`;
+          if (kpiFootSub) { kpiFootSub.className = 'kpi-sub green'; kpiFootSub.innerText = 'Cumulative session footfall'; }
+          if (kpiDwell) kpiDwell.innerHTML = `${data.avg_dwell_time} <span class="kpi-unit">seconds</span>`;
+          if (kpiDwellSub) { kpiDwellSub.innerText = `${data.busiest_zone} most active`; }
+          if (kpiStaff) kpiStaff.innerHTML = `${data.staff_filtered} <span class="kpi-unit">associate(s)</span>`;
+          if (kpiStaffSub) { kpiStaffSub.innerText = 'Staff isolated from metrics'; }
+
+          if (heroCount) heroCount.innerText = data.active_occupancy;
+          if (heroLabel) heroLabel.innerText = 'Live Shoppers';
+          if (btnReportLabel) btnReportLabel.innerText = 'Live Session Report (PDF)';
+        } else {
+          if (liveDot) liveDot.style.background = '#F59E0B';
+          if (liveText) liveText.innerHTML = 'SYSTEM STANDBY &bull; AWAITING CCTV INPUT';
+          if (livePill) {
+            livePill.style.background = 'rgba(245, 158, 11, 0.12)';
+            livePill.style.color = '#B45309';
+            livePill.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+          }
+          if (noticeBanner) {
+            noticeBanner.style.background = '#FEF3C7';
+            noticeBanner.style.borderColor = '#F59E0B';
+            noticeBanner.style.color = '#92400E';
+          }
+          if (noticeText) noticeText.innerHTML = `<strong>Standby Mode:</strong> No custom CCTV video has been uploaded yet. Displaying baseline simulation benchmark telemetry (600-frame synthetic test footage).`;
+          
+          if (kpiOcc) kpiOcc.innerHTML = `0 <span class="kpi-unit">live shoppers</span>`;
+          if (kpiOccSub) { kpiOccSub.className = 'kpi-sub gold'; kpiOccSub.innerText = 'Awaiting live video feed'; }
+          if (kpiFoot) kpiFoot.innerHTML = `${data.total_footfall || 8} <span class="kpi-unit">shoppers</span>`;
+          if (kpiFootSub) { kpiFootSub.className = 'kpi-sub green'; kpiFootSub.innerText = 'Baseline simulation count'; }
+          if (kpiDwell) kpiDwell.innerHTML = `${data.avg_dwell_time || 16.4} <span class="kpi-unit">seconds</span>`;
+          if (kpiDwellSub) { kpiDwellSub.innerText = 'Produce Aisle highest dwell'; }
+          if (kpiStaff) kpiStaff.innerHTML = `${data.staff_filtered || 1} <span class="kpi-unit">associate</span>`;
+          if (kpiStaffSub) { kpiStaffSub.innerText = 'Filtered from shopper analytics'; }
+
+          if (heroCount) heroCount.innerText = '8';
+          if (heroLabel) heroLabel.innerText = 'Benchmark Shoppers';
+          if (btnReportLabel) btnReportLabel.innerText = 'Benchmark Report (PDF)';
+        }
+
+        // Zone dwells
+        if (data.zone_dwells) {
+          const zd = data.zone_dwells;
+          if (zd["Aisle A (Produce)"] !== undefined) {
+            const val = parseFloat(zd["Aisle A (Produce)"]).toFixed(1);
+            if (dwellProduce) dwellProduce.innerText = `${val}s avg`;
+            if (barProduce) barProduce.style.width = `${Math.min(100, Math.max(15, val * 3))}%`;
+          }
+          if (zd["Aisle C (Electronics)"] !== undefined) {
+            const val = parseFloat(zd["Aisle C (Electronics)"]).toFixed(1);
+            if (dwellElec) dwellElec.innerText = `${val}s avg`;
+            if (barElec) barElec.style.width = `${Math.min(100, Math.max(15, val * 3))}%`;
+          }
+          if (zd["Aisle B (Apparel)"] !== undefined) {
+            const val = parseFloat(zd["Aisle B (Apparel)"]).toFixed(1);
+            if (dwellApp) dwellApp.innerText = `${val}s avg`;
+            if (barApp) barApp.style.width = `${Math.min(100, Math.max(15, val * 3))}%`;
+          }
+          if (zd["Checkout Lanes"] !== undefined || zd["Checkout 1"] !== undefined) {
+            const val = parseFloat(zd["Checkout Lanes"] || zd["Checkout 1"]).toFixed(1);
+            if (dwellCheck) dwellCheck.innerText = `${val}s avg`;
+            if (barCheck) barCheck.style.width = `${Math.min(100, Math.max(15, val * 3))}%`;
+          }
+        }
+
+        if (engineStatus) {
+          if (data.streamlit_alive) {
+            engineStatus.innerHTML = '🟢 Engine: Ready on Port 8501';
+            engineStatus.style.color = '#10B981';
+          } else {
+            engineStatus.innerHTML = '⚪ Engine: Standby (Click to launch)';
+            engineStatus.style.color = '#94A3B8';
+          }
+        }
+      } catch (e) {
+        // Silently tolerate network blips
+      }
+    }
+
+    // Poll every 3 seconds and on DOM load
+    setInterval(syncStoreTelemetry, 3000);
+    window.addEventListener('DOMContentLoaded', syncStoreTelemetry);
+  </script>
+</body>
+</html>
